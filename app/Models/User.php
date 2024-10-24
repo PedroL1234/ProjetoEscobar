@@ -20,7 +20,10 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+<<<<<<< HEAD
         'adm_perm', 
+=======
+>>>>>>> afbde5cfb3ea633d91f048344e1a78a3381a5f34
     ];
 
     /**
