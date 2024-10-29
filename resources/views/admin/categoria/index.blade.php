@@ -33,20 +33,25 @@
                 </thead>
                 <tbody>
                      @foreach($estoque as $linha)
-                    <tr>
-                        <td>{{ $linha->id }}</td>
-                        <td>{{ $linha->est_descricao }}</td>
-                        <td>{{ $linha->est_tamanho }}</td>
-                        <td>{{ $linha->est_quatia }}</td>
-                        <td>
-                            <a href="{{ route('est_alterar', $linha->id) }}" class="btn btn-primary"><li class="fa fa-pencil"></li></a>
-                            </a> 
-                            | 
-                             <a href="{{ route('est_excluir', ["id"=>$linha->id]) }}" class="btn btn-danger btn-sm">
-                                <li class="fa fa-trash"></li>
-                            </a>
-                         </td>
-                    </tr>
+                    <table class="table table-striped table-bordered">     
+                        <tr>
+                            <td>{{ $linha->id }}</td>
+                            <td>{{ $linha->est_descricao }}</td>
+                            <td>{{ $linha->est_tamanho }}</td>
+                            <td>{{ $linha->est_quatia }}</td>
+                            <td>
+                                <a action="{{route('edit', $linha->id)}}" class="btn btn-warning btn-sm edit-btn" data-bs-toggle="modal"
+                                        data-bs-target="#exampleModal" data-id="{{ $linha->id }}">Editar</a> 
+                                | 
+                                <form action="{{ route('est_excluir', $linha->id) }}" method="POST" style="display:inline;">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
+                                </form>
+                                
+                            </td>
+                        </tr>
+                    </table>
                     @endforeach 
                 </tbody>
                 

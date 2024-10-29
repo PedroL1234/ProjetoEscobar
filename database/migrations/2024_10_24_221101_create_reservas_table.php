@@ -20,9 +20,9 @@ return new class extends Migration
             $table->timestamps();
 
             
-            $table->foreign('id')->references('id')->on('promocoes')->onDelete('cascade');
-            $table->foreign('id')->references('id')->on('clientes')->onDelete('cascade');
-            $table->foreign('id')->references('id')->on('estoque')->onDelete('cascade');
+            $table->foreign('fk_pro_id')->references('id')->on('promocoes')->onDelete('cascade');
+            $table->foreign('fk_cli_id')->references('id')->on('clientes')->onDelete('cascade');
+            $table->foreign('fk_est_id')->references('id')->on('estoque')->onDelete('cascade');
         });
     }
 

@@ -20,11 +20,12 @@ return new class extends Migration
             $table->unsignedBigInteger('fk_res_id')->nullable();
             $table->unsignedBigInteger('fk_users_id')->nullable();
             $table->unsignedBigInteger('fk_pro_id')->nullable();
+            //tem problemas em estoque. comentar o relacionamenot com reservas arruma
             
-            $table->foreign('fk_img_id')->references('id')->on('imagem')->onDelete('cascade');
-            $table->foreign('fk_res_id')->references('id')->on('reservas')->onDelete('cascade');
-            $table->foreign('fk_users_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('fk_pro_id')->references('id')->on('promocoes')->onDelete('cascade');
+            $table->foreign('fk_img_id')->references('id')->on('imagem');
+            $table->foreign('fk_res_id')->references('id')->on('reservas');
+            $table->foreign('fk_users_id')->references('id')->on('users');
+            $table->foreign('fk_pro_id')->references('id')->on('promocoes');
         });
         
         

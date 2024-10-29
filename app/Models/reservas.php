@@ -8,8 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Reservas extends Model
 {
     use HasFactory;
+    public function up()
+    {
+        if (!Schema::hasTable('reservas')) {
+            Schema::create('reservas', function (Blueprint $table) {
+                $table->id();
+                $table->foreignId('fk_pro_id')->constrained();
+                $table->foreignId('fk_cli_id')->constrained();
+                $table->foreignId('fk_est_id')->constrained();
+                $table->timestamps();
+            });
+        }   
+    }
 
     protected $table = 'reservas';
+     
 
     protected $fillable = [
         'fk_pro_id',  // Promoção

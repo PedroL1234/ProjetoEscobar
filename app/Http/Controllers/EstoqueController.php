@@ -29,7 +29,8 @@ class EstoqueController extends Controller
             'est_quantia' => 'required|integer',
             'est_tamanho' => 'required|string|max:50',
             'est_descricao' => 'required|string|max:255',
-            'imagem' => 'nullable|image|max:2048',
+            'imagem' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+            
         ]);
         
         $est_quantia = $request->input('est_quantia');   
@@ -56,7 +57,7 @@ class EstoqueController extends Controller
 
         $estoque->save();
 
-        return redirect()->route("admin.categoria.index")->with('success', 'Produto salvo com sucesso!');
+        return redirect()->route("estoque.index")->with('success', 'Produto salvo com sucesso!');
     }
 
     public function buscar($id)
@@ -65,13 +66,14 @@ class EstoqueController extends Controller
         return view('admin.categoria.alterar', compact('estoqueItem'));
     }
 
-    public function est_alterar(Request $request, $id)
+    public function edit(Request $request, $id)
     {
         $request->validate([
             'imagem' => 'nullable|image|max:2048',
-            'est_tamanho' => 'required|string|max:255',
+            'est_tamanho' => 'required|string|max:255', 
             'est_descricao' => 'required|string|max:255',
             'est_quantia' => 'required|integer',
+            'fk_img_id' => 'nullable|integer',
         ]);
     
         $estoqueItem = Estoque::findOrFail($id);
@@ -80,14 +82,13 @@ class EstoqueController extends Controller
         $estoqueItem->est_quantia = $request->input('est_quantia');
 
         if ($request->hasFile('imagem')) {
-            $imagemPath = $request->file('imagem')->store('imagens', 'public'); // Armazena a nova imagem
+            $imagemPath = $request->file('imagem')->store('imagens', 'public'); 
 
-            // Salva a nova imagem na tabela de imagens
             $imagem = new Imagem();
             $imagem->caminho = $imagemPath;
             $imagem->save();
 
-            $estoqueItem->fk_img_id = $imagem->id; // Atualiza o ID da imagem
+            $estoqueItem->fk_img_id = $imagem->id;
         }
 
         $estoqueItem->save();
@@ -106,7 +107,7 @@ class EstoqueController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'imagem' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', 
+            'imagem' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         // Processamento do arquivo de imagem
@@ -123,4 +124,5 @@ class EstoqueController extends Controller
 
         return redirect()->back()->with('error', 'Erro ao enviar a imagem.');
     }
+   
 }
