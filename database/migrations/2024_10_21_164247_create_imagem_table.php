@@ -13,7 +13,7 @@ return new class extends Migration
 {
     Schema::create('imagem', function (Blueprint $table) {
         $table->id();
-        $table->string('caminho'); // Certifique-se de que esta linha está presente
+        $table->string('caminho');
         $table->timestamps();
     });
 } 

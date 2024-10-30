@@ -10,8 +10,10 @@ class EstoqueController extends Controller
 {
     public function index()
     {
-        $estoque = Estoque::all();
-        return view("admin.categoria.index", compact('estoque'));
+        $estoque = Estoque::with(['imagem'])->get();
+        $imagem = Imagem::all();
+        return view("admin.categoria.index", compact('estoque','imagem'));
+        
     }
 
     public function verifica()
@@ -26,9 +28,9 @@ class EstoqueController extends Controller
     public function SalvarNovaR(Request $request)
     {
         $request->validate([
-            'est_quantia' => 'required|integer',
             'est_tamanho' => 'required|string|max:50',
             'est_descricao' => 'required|string|max:255',
+            'est_quantia' => 'required|integer',
             'imagem' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             
         ]);
@@ -39,14 +41,13 @@ class EstoqueController extends Controller
         $fk_img_id = null;
 
         if ($request->hasFile('imagem')) {
-            $imagemPath = $request->file('imagem')->store('imagens', 'public'); // Armazena a imagem
+            $imagemPath = $request->file('imagem')->store('imagens', 'public'); 
 
-            // Salva a imagem na tabela de imagens
             $imagem = new Imagem();
             $imagem->caminho = $imagemPath;
             $imagem->save();
 
-            $fk_img_id = $imagem->id; // Obtém o ID da imagem salva
+            $fk_img_id = $imagem->id;
         }
         
         $estoque = new Estoque();

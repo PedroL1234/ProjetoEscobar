@@ -16,4 +16,9 @@ class Estoque extends Model
         'est_quantia',
 
     ];
+    public function imagem()
+    {
+        return $this->belongsTo(Imagem::class, 'fk_img_id');
+    }
+    
 }
