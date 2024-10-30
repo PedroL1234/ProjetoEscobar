@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-<<<<<<< HEAD
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\EstoqueController;
 use App\Http\Controllers\AuthController;
@@ -39,12 +38,3 @@ Route::post('/registrar', [AuthController::class, 'registrar']);
 
 
 
-=======
-
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/clientes', function () {
-    return view('index');
-});
->>>>>>> afbde5cfb3ea633d91f048344e1a78a3381a5f34
