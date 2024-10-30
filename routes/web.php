@@ -18,10 +18,6 @@ Route::get('/estoque', [EstoqueController::class, 'index'])->name('estoque.index
 
 
 
-
-
-
-
 Route::middleware('auth')->group(function(){
 
     Route::get('/estoque', [EstoqueController::class, 'index'])->name('estoque');
