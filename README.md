@@ -1,3 +1,3 @@
 # Modelagem
 
-![Screenshot](./assets/img/modelagem.png)
+![Screenshot](public/assets/modelagem.png)
