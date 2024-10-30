@@ -44,7 +44,8 @@
                                     
                                 </ul>
                             </div>
-                            <img class="foto_vitrine" src="assets/images/men-01.jpg" alt="">
+                            <<img class="foto_vitrine" src="{{ asset('storage/' . $estoques->imagem->caminho) }}" alt="{{ $estoques->est_descricao }}">
+                            <h4>{{ $imagem->caminho }}</h4>
                             
                         </div>
                         <div class="down-content">
