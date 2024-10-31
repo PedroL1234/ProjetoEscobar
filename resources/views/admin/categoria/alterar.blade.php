@@ -18,10 +18,6 @@
             @csrf
             <input type="hidden" name="id" value="{{$estoqueItem->id}}">
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="est_tamanho" value="{{ $estoqueItem->est_tamanho }}">
-                <label for="floatingInput">tipo </label>
-            </div>
-            <div class="form-floating mb-3">
                 <input type="text" class="form-control" name="est_descricao" value="{{ $estoqueItem->est_descricao }}">
                 <label for="floatingInput">Descriçao</label>
             </div>
@@ -30,12 +26,12 @@
                 <label for="floatingInput">Quantidade</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="est_ativo" value="{{ $estoqueItem->est_ativo }}">
-                <label for="floatingInput">status</label>
+                <input type="text" class="form-control" name="est_nome" value="{{ $estoqueItem->est_nome }}">
+                <label for="floatingInput">Nome</label>
             </div>
             <div class="form-floating mb-3">
-                <input type="text" class="form-control" name="est_ativo" value="{{ $estoqueItem->est_ativo }}">
-                <label for="floatingInput">Promoções</label>
+                <input type="number" class="form-control" name="est_valor" value="{{ $estoqueItem->est_valor }}">
+                <label for="floatingInput">Valor</label>
             </div>
             <div class="row">
                 <div class="col-md-4">

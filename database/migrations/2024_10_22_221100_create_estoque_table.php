@@ -9,11 +9,36 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
+    
+    public function up2(): void
+    {
+        Schema::table('estoque', function (Blueprint $table) {
+            // Verifique se a coluna não existe antes de adicioná-la
+            if (!Schema::hasColumn('estoque', 'fk_res_id')) {
+                $table->unsignedBigInteger('fk_res_id')->default(0)->change();
+                $table->foreign('fk_res_id')->references('id')->on('reservas')->onDelete('cascade'); // Adicionar chave estrangeira
+            }
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down2(): void
+    {
+        Schema::table('estoque', function (Blueprint $table) {
+            $table->dropForeign(['fk_res_id']); // Remove a chave estrangeira
+            $table->dropColumn('fk_res_id');    // Remove o campo
+        });
+    }
     public function up(): void
     {
         Schema::create('estoque', function (Blueprint $table) {
+            $table->timestamps();
             $table->id();
             $table->string('est_tamanho');
+            $table->string('est_nome');
+            $table->integer('est_valor');
             $table->string('est_descricao');
             $table->integer('est_quantia');
             $table->unsignedBigInteger('fk_img_id')->nullable();

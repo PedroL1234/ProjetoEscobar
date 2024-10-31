@@ -26,6 +26,8 @@
 
                         <tr>
                             <th>ID</th>
+                            <th>Nome</th>
+                            <th>Valor</th>
                             <th>Descrição</th>
                             <th>Tamanho</th>
                             <th>Quantia</th>
@@ -37,9 +39,12 @@
                         @foreach ($estoque as $linha)
                             <tr>
                                 <td>{{ $linha->id }}</td>
+                                <td>{{ $linha->est_nome }}</td>
+                                <td>{{ $linha->est_valor }}</td>
                                 <td>{{ $linha->est_descricao }}</td>
                                 <td>{{ $linha->est_tamanho }}</td>
                                 <td>{{ $linha->est_quantia }}</td>
+
                                 <td>
                                     @if ($linha->imagem)
                                         <img src="{{ asset('storage/' . $linha->imagem->caminho) }}" alt="Imagem do estoque"
@@ -49,9 +54,12 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a action="{{ route('edit', $linha->id) }}" class="btn btn-warning btn-sm edit-btn"
-                                        data-bs-toggle="modal" data-bs-target="#exampleModal"
-                                        data-id="{{ $linha->id }}">Editar</a>
+
+
+
+                                    <button type="button" class="btn btn-warning btn-sm" data-bs-toggle="modal"
+                                        data-bs-target="#example">Editar</button>
+
                                     |
                                     <form action="{{ route('est_excluir', $linha->id) }}" method="POST"
                                         style="display:inline;">
@@ -89,6 +97,14 @@
                             <label for="image">Adicione a foto da roupa</label>
                         </div>
                         <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="est_nome">
+                            <label for="floatingInput">Nome</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="integer" class="form-control" name="est_valor">
+                            <label for="floatingInput">Valor</label>
+                        </div>
+                        <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="est_descricao">
                             <label for="floatingInput">Descriçao</label>
                         </div>
@@ -105,6 +121,57 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
                         <button type="submit" class="btn btn-primary">Salvar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="modal fade" id="example" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" action="/estoque" enctype="multipart/form-data">
+                    @csrf
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <center>
+                            <h2>Editar</h2>
+                        </center>
+                        <div class="form-floating mb-3">
+                            <input type="file" class="form-control" id="img" name="imagem">
+                            <label for="image">Editar a foto da roupa</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="est_nome">
+                            <label for="floatingInput">Nome</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="integer" class="form-control" name="est_valor">
+                            <label for="floatingInput">Valor</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="est_descricao">
+                            <label for="floatingInput">Descriçao</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="est_tamanho">
+                            <label for="floatingInput">tamanho</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" name="est_quantia">
+                            <label for="floatingInput">Quantia</label>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary">Editar</button>
                     </div>
                 </form>
             </div>

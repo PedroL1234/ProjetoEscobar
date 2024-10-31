@@ -44,38 +44,19 @@
                                                     class="fa fa-star"></i></a></li>
                                     </ul>
                                 </div>
-                                <img class="foto_vitrine" src="{{ asset('storage/' . $linha->imagem->caminho) }}"
-                                    alt="{{ $linha->est_descricao }}">
+                                <img class="foto_vitrine" src="{{ asset('storage/' . $linha->imagem->caminho) }}">
+                                
+                                    {{-- alt="{{ $linha->est_descricao }}" width="300">
+                                    <img class="foto_vitrine" 
+     src="{{ $linha->imagem ? asset('storage/' . $linha->imagem->caminho) : asset('storage/default_image.jpg') }}" 
+     alt="{{ $linha->est_descricao }}" 
+     width="300"> --}}
+
+                                
+                            </div>
+                            <div class="down-content">
                                 <h4>{{ $linha->est_descricao }}</h4>
-                            </div>
-                            <div class="down-content">
-                                <h4>{{ $linha->est_descricao }}</h4>
-                                <span>R$120.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                                    class="fa fa-star"></i></a></li>
-
-                                    </ul>
-                                </div>
-                                <img class="foto_vitrine" src="assets/images/men-02.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Air Force 1 X</h4>
-                                <span>R$90.00</span>
+                                <h6>{{$linha->est_tamanho }}</h6>
                                 <ul class="stars">
                                     <li><i class="fa fa-star"></i></li>
                                     <li><i class="fa fa-star"></i></li>
@@ -86,200 +67,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                                    class="fa fa-star"></i></a></li>
-
-                                    </ul>
-                                </div>
-                                <img class="foto_vitrine" src="assets/images/men-03.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Love Nana ‘20</h4>
-                                <span>R$150.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                                    class="fa fa-star"></i></a></li>
-
-                                    </ul>
-                                </div>
-                                <img class="foto_vitrine" src="assets/images/vestido1.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>New Green Jacket</h4>
-                                <span>R$75.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                                    class="fa fa-star"></i></a></li>
-
-                                    </ul>
-                                </div>
-                                <img class="foto_vitrine" src="assets/images/women-02.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Classic Dress</h4>
-                                <span>R$45.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                                    class="fa fa-star"></i></a></li>
-
-                                    </ul>
-                                </div>
-                                <img class="foto_vitrine" src="assets/images/women-03.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Spring Collection</h4>
-                                <span>R$130.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                                    class="fa fa-star"></i></a></li>
-
-                                    </ul>
-                                </div>
-                                <img class="foto_vitrine" src="assets/images/kid-01.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>School Collection</h4>
-                                <span>R$80.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="single-product.html"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                                    class="fa fa-star"></i></a></li>
-
-                                    </ul>
-                                </div>
-                                <img class="foto_vitrine" src="assets/images/kid-02.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Summer Cap</h4>
-                                <span>R$12.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="item">
-                            <div class="thumb">
-                                <div class="hover-content">
-                                    <ul>
-                                        <li><a href="" data-bs-toggle="modal"><i class="fa fa-eye"></i></a></li>
-                                        <li><a href="" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                                                    class="fa fa-star"></i></a></li>
-
-                                    </ul>
-                                </div>
-                                <img class="foto_vitrine" src="assets/images/kid-03.jpg" alt="">
-                            </div>
-                            <div class="down-content">
-                                <h4>Classic Kid</h4>
-                                <span>R$30.00</span>
-                                <ul class="stars">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-12">
-                        <div class="pagination">
-                            <ul>
-                                <li>
-                                    <a href="/">1</a>
-                                </li>
-                                <li class="active">
-                                    <a href="/2">2</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+                    
                 @endforeach
             </div>
         </div>

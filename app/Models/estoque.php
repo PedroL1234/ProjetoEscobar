@@ -14,11 +14,15 @@ class Estoque extends Model
         'est_tamanho',
         'est_descricao',
         'est_quantia',
+        'est_nome',
+        'est_valor',
 
     ];
     public function imagem()
     {
         return $this->belongsTo(Imagem::class, 'fk_img_id');
     }
+    
+    
     
 }
