@@ -12,10 +12,11 @@
         </div>
     @endif
 
-    <form action="{{ route('edit', $estoqueItem->id) }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('edit')}}" method="POST" enctype="multipart/form-data">
         @csrf
+        
         @method('PUT')
-
+        <input type="hidden" name="id" value="{{$estoqueItem->id}}">
         <div class="form-group">
             <label for="est_descricao">Descrição</label>
             <input type="text" class="form-control" id="est_descricao" name="est_descricao" value="{{ old('est_descricao', $estoqueItem->est_descricao) }}" required>

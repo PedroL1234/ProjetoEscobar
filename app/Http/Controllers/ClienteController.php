@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Estoque;
 use App\Models\Clientes;
 
 class ClienteController extends Controller
@@ -15,7 +16,8 @@ class ClienteController extends Controller
     public function index2()
     {
         $clientes = Clientes::all();
-        return view("cliente.mostruario.welcome2", compact('clientes'));
+        $estoque = Estoque::all();
+        return view("cliente.mostruario.welcome2", compact('clientes','estoque'));
     }
 
     public function SalvarCliente(Request $request)

@@ -67,9 +67,10 @@ class EstoqueController extends Controller
         return view('admin.categoria.alterar', compact('estoqueItem'));
     }
 
-    public function edit(Request $request, $id)
+    public function edit(Request $request)
     {
         $request->validate([
+            'id'=>'required|integer',
             'imagem' => 'nullable|image|max:2048',
             'est_tamanho' => 'required|string|max:255', 
             'est_descricao' => 'required|string|max:255',
@@ -77,10 +78,10 @@ class EstoqueController extends Controller
             'fk_img_id' => 'nullable|integer',
         ]);
     
-        $estoqueItem = Estoque::findOrFail($id);
-        $estoqueItem->est_tamanho = $request->input('est_tamanho');
-        $estoqueItem->est_descricao = $request->input('est_descricao');
-        $estoqueItem->est_quantia = $request->input('est_quantia');
+        $estoqueItem = Estoque::where($id,'id')->first;
+        $estoqueItem->est_tamanho = $request->input('nome');
+        $estoqueItem->est_descricao = $request->input('descricao');
+        $estoqueItem->est_quantia = $request->input('quantia'); 
 
         if ($request->hasFile('imagem')) {
             $imagemPath = $request->file('imagem')->store('imagens', 'public'); 

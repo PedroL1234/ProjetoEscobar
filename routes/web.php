@@ -23,7 +23,7 @@ Route::middleware('auth')->group(function(){
     Route::get('/estoque', [EstoqueController::class, 'index'])->name('estoque');
 
     Route::post('/estoque', [EstoqueController::class, 'SalvarNovaR'])->name('estoque.index');
-    Route::get('/estoque/{id}', [EstoqueController::class, 'edit'])->name('edit');
+    Route::get('/estoque/upd', [EstoqueController::class, 'edit'])->name('edit');
     Route::delete('/estoque/{id}', [EstoqueController::class, 'destroy'])->name('est_excluir');
 
     

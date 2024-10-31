@@ -12,9 +12,9 @@
         </div>
     @endif
 
-    <form action="{{ route('usuarios.atualizar', $cliente->id) }}" method="POST">
+    <form action="{{ route('usuarios.atualizar') }}" method="POST">
         @csrf
-
+        <input type="hidden" name="id" value="{{$cliente->id}}">
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" id="nome" name="nome" value="{{ old('nome', $cliente->nome) }}" required>
