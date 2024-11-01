@@ -40,7 +40,8 @@
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
                                             <a class="nav-link" href="/clientes">Clientes</a>
-                                            <a class="nav-link" href="/estoque">Gerenciar Estoque</a>
+                                            <a class="nav-link" href="/estoque">Gerenciar de Roupas</a>
+                                            <a class="nav-link" href="/admin">Permição de Administração</a>
                                         </nav>
                                 </nav>
                             </div>

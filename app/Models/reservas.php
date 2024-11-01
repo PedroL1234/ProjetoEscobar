@@ -5,21 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Reservas extends Model
+class reservas extends Model
 {
     use HasFactory;
-    public function up()
-    {
-        if (!Schema::hasTable('reservas')) {
-            Schema::create('reservas', function (Blueprint $table) {
-                $table->id();
-                $table->foreignId('fk_pro_id')->constrained();
-                $table->foreignId('fk_cli_id')->constrained();
-                $table->foreignId('fk_est_id')->constrained();
-                $table->timestamps();
-            });
-        }   
-    }
+   
 
     protected $table = 'reservas';
      
@@ -43,8 +32,8 @@ class Reservas extends Model
     }
 
     // Relacionamento com Promoção
-    public function promocao()
-    {
-        return $this->belongsTo(Promocao::class, 'fk_pro_id');
-    }
+    // public function promocao()
+    // {
+    //     return $this->belongsTo(Promocao::class, 'fk_pro_id');
+    // }
 }
