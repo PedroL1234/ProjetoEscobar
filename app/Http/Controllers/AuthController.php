@@ -19,7 +19,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('estoque');
+            return redirect()->route('estoque.index');
         }
         return back()->withErrors([
             'email' => 'As credenciais fornecidas estão incorretas.',

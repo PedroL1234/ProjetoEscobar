@@ -39,8 +39,9 @@
                             <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
                                         <nav class="sb-sidenav-menu-nested nav">
-                                            <a class="nav-link" href="/clientes">Clientes</a>
+                                            <a class="nav-link" href="/clientes">Reservas</a>
                                             <a class="nav-link" href="/estoque">Gerenciar Estoque</a>
+                                            <a class="nav-link" href="/estoque/registro">Pedidos de acesso</a>
                                         </nav>
                                 </nav>
                             </div>

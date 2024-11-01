@@ -16,12 +16,11 @@
         @csrf
         
         @method('PUT')
-        <input type="hidden" name="id" value="{{$estoque->id}}">
-        dd(id);
+        <input type="hidden" name="id" value="{{$estoqueItem ->id}}">
         
         <div class="form-group">
             <label for="est_descricao">Descrição</label>
-            <input type="text" class="form-control" id="est_descricao" name="est_descricao" value="{{ old('est_descricao', $estoque->est_descricao) }}" required>
+            <input type="text" class="form-control" id="est_descricao" name="est_descricao" value="{{ old('est_descricao', $estoqueItem->est_descricao) }}" required>
             @error('est_descricao')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -29,7 +28,7 @@
 
         <div class="form-group">
             <label for="est_tamanho">Tamanho</label>
-            <input type="text" class="form-control" id="est_tamanho" name="est_tamanho" value="{{ old('est_tamanho', $estoque->est_tamanho) }}" required>
+            <input type="text" class="form-control" id="est_tamanho" name="est_tamanho" value="{{ old('est_tamanho', $estoqueItem->est_tamanho) }}" required>
             @error('est_tamanho')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
@@ -37,14 +36,14 @@
 
         <div class="form-group">
             <label for="est_quantia">Quantia</label>
-            <input type="number" class="form-control" id="est_quantia" name="est_quantia" value="{{ old('est_quantia', $estoque->est_quantia) }}" required>
+            <input type="number" class="form-control" id="est_quantia" name="est_quantia" value="{{ old('est_quantia', $estoqueItem->est_quantia) }}" required>
             @error('est_quantia')
                 <div class="text-danger">{{ $message }}</div>
             @enderror
         </div>
         <div class="form-group">
             <label for="est_nome">nome</label>
-            <input type="text" class="form-control" id="est_nome" name="est_nome" value="{{ old('est_nome', $estoque->est_nome) }}" required>
+            <input type="text" class="form-control" id="est_nome" name="est_nome" value="{{ old('est_nome', $estoqueItem->est_nome) }}" required>
             
             
             @error('est_nome')
@@ -53,7 +52,7 @@
         </div>
         <div class="form-group">
             <label for="est_valor">valor</label>
-            <input type="number" class="form-control" id="est_valor" name="est_valor" value="{{ old('est_valor', $estoque->est_valor) }}" required>
+            <input type="number" class="form-control" id="est_valor" name="est_valor" value="{{ old('est_valor', $estoqueItem->est_valor) }}" required>
             
             @error('est_valor')
                 <div class="text-danger">{{ $message }}</div>
@@ -64,8 +63,8 @@
         <div class="form-group">
             <label for="imagem">Imagem (opcional)</label>
             <input type="file" class="form-control" id="imagem" name="imagem">
-            @if($estoque->fk_img_id)
-                <p>Imagem atual: <img src="{{ asset('storage/' . $estoque->imagem->caminho) }}" alt="Imagem atual" width="100"></p>
+            @if($estoqueItem->fk_img_id)
+                <p>Imagem atual: <img src="{{ asset('storage/' . $estoqueItem->imagem->caminho) }}" alt="Imagem atual" width="100"></p>
             @endif
             
             @error('imagem')
@@ -75,6 +74,22 @@
 
         <button type="submit" class="btn btn-primary">Salvar alterações</button>
         <a href="{{ route('estoque.index') }}" class="btn btn-secondary">Cancelar</a>
+
     </form>
 </div>
+<script>
+    document.querySelectorAll('.edit-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const id = this.dataset.id;
+            fetch(`/clientes/${id}/edit`)
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('clienteNome').value = data.cli_nome;
+                    document.getElementById('clienteEmail').value = data.cli_email;
+                    document.getElementById('clienteTelefone').value = data.cli_numero;
+                    document.getElementById('editForm').action = `/clientes/${id}`;
+                });
+        });
+    });
+</script>
 @endsection
